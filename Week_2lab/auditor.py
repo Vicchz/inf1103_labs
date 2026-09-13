@@ -15,21 +15,28 @@ if inventory > 500, alert and break loop
 when type quit, print total unit processed and numbe failed rejected entries'''
 
 inventory = 0
+rejects = 0
 
 while True:
     Entry = input("Enter stock quantity:")
 
     if Entry == "quit":
         break
-    elif int(Entry) > 0:
-         quantity = int(Entry)
-         inventory += int(quantity)
-    elif int(Entry) < 0:
-            print("No negative number")
-            rejects =+ 1
     elif not Entry.isdigit():
-        print("Error please enter whole number")
-        rejects += 1
-        continue
-    
+            print("Error please enter whole number")
+            rejects += 1
+            continue
+
     quantity = int(Entry)
+
+    if int(Entry) < 0:
+            print("No negative number")
+            rejects += 1
+            continue
+
+    inventory += int(quantity)
+
+    
+    if inventory > 500:
+        print("!!! Alert !!! exceed 500 unit")
+        break
