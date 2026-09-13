@@ -16,4 +16,8 @@ when type quit, print total unit processed and numbe failed rejected entries'''
 
 inventory = 0
 
+while True:
+    Entry = input("Enter stock quantity:")
 
+    if str(Entry) == "quit":
+        break
