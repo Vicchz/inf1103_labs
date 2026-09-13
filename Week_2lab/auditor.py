@@ -21,6 +21,8 @@ while True:
     Entry = input("Enter stock quantity:")
 
     if Entry == "quit":
+        print("Total unit processed:", inventory)
+        print("Number of rejects:", rejects)
         break
     elif not Entry.isdigit():
             print("Error please enter whole number")
