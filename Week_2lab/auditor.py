@@ -21,5 +21,7 @@ while True:
 
     if str(Entry) == "quit":
         break
-
+    elif not Entry.isdigit():
+        print("Error please enter whole number")
+        continue
     quantity = int(Entry)
