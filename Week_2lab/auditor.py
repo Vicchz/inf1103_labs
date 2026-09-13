@@ -21,3 +21,5 @@ while True:
 
     if str(Entry) == "quit":
         break
+
+    quantity = int(Entry)
