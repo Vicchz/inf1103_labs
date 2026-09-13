@@ -21,6 +21,9 @@ while True:
 
     if Entry == "quit":
         break
+    elif int(Entry) > 0:
+         quantity = int(Entry)
+         inventory += int(quantity)
     elif int(Entry) < 0:
             print("No negative number")
             rejects =+ 1
