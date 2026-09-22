@@ -47,5 +47,6 @@ while True:
 
     result = get_valid_input() 
     if result == "quit":
+          generate_report(inventory,rejects)
           break
     
