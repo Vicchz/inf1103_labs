@@ -15,12 +15,15 @@ def get_valid_input():
              num = int(Entry)
              if num > 0:
                   inventory += int(Entry)
-                  print(inventory) 
+                  print(inventory)
+                  # 1 unit is $10 
+                  delivery_amount = inventory * 10
+                  print("$",delivery_amount) 
              elif num < 0:
                   print("no negative number")
                   rejects += 1
         
-        except:
+        except(ValueError):
              print("Error please enter whole number")    
              rejects += 1
              print(rejects)
@@ -43,5 +46,4 @@ while True:
     result = get_valid_input() 
     if result == "quit":
           break
-    
     
