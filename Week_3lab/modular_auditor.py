@@ -20,6 +20,9 @@ def get_valid_input():
                   delivery_amount = inventory * 10
                   tax = calculate_tax(delivery_amount)
                   print("$",delivery_amount) 
+                  if inventory > 500:
+                        print("Alert exceed 500 units")
+                        return inventory
 
              elif num < 0:
                   print("no negative number")
@@ -49,4 +52,6 @@ while True:
     if result == "quit":
           generate_report(inventory,rejects)
           break
+    elif inventory > 500:
+        break
     
