@@ -14,11 +14,13 @@ def get_valid_input():
         try:
              num = int(Entry)
              if num > 0:
-                  inventory += int(Entry)
+                  inventory = process_delivery(inventory, int(Entry))
                   print(inventory)
                   # 1 unit is $10 
                   delivery_amount = inventory * 10
+                  tax = calculate_tax(delivery_amount)
                   print("$",delivery_amount) 
+
              elif num < 0:
                   print("no negative number")
                   rejects += 1
@@ -34,7 +36,7 @@ def process_delivery(current_total, new_value):
 
 
 
-def calculate_tax():
+def calculate_tax(amount):
        return amount * 0.10
 
 def generate_report(total_unit, failed_attempts):
