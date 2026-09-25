@@ -20,6 +20,12 @@ def load_inventory():
         inventory = 0
         history = []
 
+def save_inventory(total, transactions):
+    with open("inventory.txt", "w") as f:
+        f.write(str(total) + "\n")          # <- this runs FIRST
+        for amount in transactions:          # <- this runs AFTER
+            f.write(str(amount) + "\n")
+
 def get_valid_input():
         global inventory
         global rejects
@@ -67,8 +73,6 @@ def generate_report(total_unit, failed_attempts):
 
 
 load_inventory()
-print("Inventory (total):", inventory)
-print("History:", history)
 
 #while True:
 
