@@ -48,7 +48,7 @@ def get_valid_input():
                         print("Alert exceed 500 units")
                         return inventory
 
-             elif num < 0:
+             else:
                   print("no negative number")
                   rejects += 1
         
@@ -74,12 +74,14 @@ def generate_report(total_unit, failed_attempts):
 
 load_inventory()
 
-#while True:
+while True:
 
-#    result = get_valid_input() 
-#    if result == "quit":
- #         generate_report(inventory,rejects)
- #         break
- #   elif inventory > 500:
- #       break
+    result = get_valid_input() 
+    if result == "quit":
+          generate_report(inventory,rejects)
+          save_inventory(inventory, history)
+          break
+    elif inventory > 500:
+        save_inventory(inventory, history)
+        break
     
