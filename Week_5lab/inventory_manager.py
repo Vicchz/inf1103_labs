@@ -27,8 +27,16 @@ def display_all(inventory):
     print("-------------------------------")
 
 
+def save_inventory(product):
+    with open("inventory.json", "w") as file:
+        print("Saving inventory...")
+        json.dump(product, file, indent=4)
+        print("Inventory saved successfully to inventory.json")
+
+
 inventory = load_inventory()
 
 display_all(inventory)
+save_inventory(inventory)
 
 
