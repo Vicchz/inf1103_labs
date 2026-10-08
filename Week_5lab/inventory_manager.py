@@ -42,33 +42,72 @@ def add_product(inventory):
          "ID": product_id,  "Name": name, "Price": price, "Stocks": stocks
     }
     inventory.append(new_product)
+    print("Product added successfully!")
+
+def search_product(inventory, pid):
+    for item in inventory:
+        if item["ID"] == pid:
+            return item
+    return None
+
+def update_stock(inventory):
+    pid = input("Enter Product ID: ")
+    item = search_product(inventory, pid)
+    if item is None:
+        print("Product not found.")
+    else:
+        print("Product Found:")
+        print(f"Name: {item['Name']}")
+        print(f"Current Stock: {item['Stocks']}")
+        item["Stocks"] = int(input("New Stock Quantity: "))
+        print("Stock updated successfully!")
 
 def Menu_system():
-    print("-----------MENU------------")
-    print("1. Display All Producsts \n2. Add Product \n3. Update Stock \n4. Search Product \n5. Save Inventory \n6. Exit")
-    print("---------------------------")
-    choice = int(input("Enter option:"))
-    if (choice == 1):
-        display_all(inventory)
-    elif (choice == 2):
-        add_product(inventory)
-    elif (choice == 3):
-        print("Update stock") #not done defupdate stock
-    elif(choice == 4):
-        print("search product")
-    elif(choice == 5):
-        save_inventory(inventory)
-    elif(choice == 6):
-        print("Saving inventory before exit...")
-        print("Inventory saved successfully.")
-        print("\nThank you for using Inventory Managament System.\nProgram terminated")
+    while True:
+        print("-----------MENU------------")
+        print("1. Display All Producsts \n2. Add Product \n3. Update Stock \n4. Search Product \n5. Save Inventory \n6. Exit")
+        print("---------------------------")
+        choice = int(input("Enter option:"))
+        if (choice == 1):
+            display_all(inventory)
+        elif (choice == 2):
+            add_product(inventory)
+        elif (choice == 3):
+            print("Update stock") #not done defupdate stock
+            update_stock(inventory)
+
+        elif(choice == 4):
+            print("search product")
+            pid = input("Enter Product ID: ")
+            item = search_product(inventory, pid)
+            if item is None:
+                print("Product not found")
+            else:
+                print("Product Found.")
+                print("-" * 48)
+                print(f"ID: {item['ID']}")
+                print(f"Name: {item['Name']}")
+                print(f"Price: {item['Price']:.2f}")
+                print(f"Stock: {item['Stocks']}")
+                print("-" * 48)
+
+        elif(choice == 5):
+            save_inventory(inventory)
+        elif(choice == 6):
+            print("Saving inventory before exit...")
+            print("Inventory saved successfully.")
+            print("\nThank you for using Inventory Managament System.\nProgram terminated")
+            break
 
 inventory = load_inventory()
-
-#Menu_system()
+print("=" * 48)
+print("INVENTORY MANAGEMENT SYSTEM")
+print("=" * 48)
+Menu_system()
 #add_product(inventory)
 #print(inventory)
-display_all(inventory)
+#search_product(inventory, pid = input("Enter Product ID:"))
+#display_all(inventory)
 #save_inventory(inventory)
 
 
