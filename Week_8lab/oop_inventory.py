@@ -42,12 +42,6 @@ class Product:
         print(f"ID:{self.__product_id} | Name:{self.__name} | Price:{self.__price} | Stock:{self.__stock}")
 
 
-product = Product("P001", "Laptop", "1200", "15")    
-#product.updatestock()
-product.display_information()
-product.update_stock(50)
-product.display_information()
-
 class Inventory:
     def __init__(self):
         self.__products = []          
@@ -72,6 +66,7 @@ def load_inventory():
     inventory = Inventory()
     with open("inventory.json", "r") as file:
         data = json.load(file)
+        print("inventory.json found.")
     for item in data:
         inventory.add_product(Product(item["ID"], item["Name"], item["Price"], item["Stocks"]))
     print("Inventory loaded successfully")
@@ -85,7 +80,7 @@ def save_inventory(inventory):
 
 def menu_system(inventory):
     while True:
-        print("-----------MENU------------")
+        print("\n-----------MENU------------")
         print("1. Display All Products\n2. Add Product\n3. Update Stock\n4. Search Product\n5. Save Inventory\n6. Exit")
         print("---------------------------")
         choice = int(input("Enter option: "))
