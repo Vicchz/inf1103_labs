@@ -1,66 +1,7 @@
 import json
+from iventory import Inventory
+from retry import Product
 
-starter_inventory = [
-    {"ID": "P001", "Name": "Laptop", "Price": 1200.00, "Stocks": 15},
-    {"ID": "P002", "Name": "Mouse", "Price": 25.50, "Stocks": 40},
-    {"ID": "P003", "Name": "Keyboard", "Price": 45.00, "Stocks": 25}
-]
-
-class Product:
-
-
-    def __init__(self, product_id, name, price, stock):
-        self.__product_id = product_id
-        self.__name = name
-        self.__price = price
-        self.__stock = stock
-
-    @property
-    def product_id(self):
-        return self.__product_id
-
-    @property
-    def name(self):
-        return self.__name
-
-    @property
-    def stock(self):
-        return self.__stock
-
-    def to_dict(self):
-        return {"ID": self.__product_id, "Name": self.__name,
-                "Price": self.__price, "Stocks": self.__stock}
-    
-    def update_stock(self, quantity):
-        if quantity < 0:
-            return False
-        self.__stock = quantity
-        return True
-        
-
-    def display_information(self):
-        print(f"ID:{self.__product_id} | Name:{self.__name} | Price:{self.__price} | Stock:{self.__stock}")
-
-
-class Inventory:
-    def __init__(self):
-        self.__products = []          
-
-    def add_product(self, product):
-        self.__products.append(product)
-
-    def get_products(self):
-        return list(self.__products)
-
-    def search_product(self, product_id):
-        for product in self.__products:
-            if product.product_id == product_id:
-                return product
-        return None
-
-    def display_all(self):
-        for product in self.__products:
-            product.display_information()
 
 def load_inventory():
     inventory = Inventory()
@@ -77,6 +18,7 @@ def save_inventory(inventory):
     with open("inventory.json", "w") as file:
         json.dump(data, file, indent=4)
     print("Inventory saved successfully to inventory.json")
+
 
 def menu_system(inventory):
     while True:
@@ -116,9 +58,5 @@ def menu_system(inventory):
             print("Program terminated")
             break
 
-
 inventory = load_inventory()
-print("=" * 48)
-print("INVENTORY MANAGEMENT SYSTEM")
-print("=" * 48)
 menu_system(inventory)
