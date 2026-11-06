@@ -1,0 +1,42 @@
+[
+    {
+        "ID": "P1",
+        "Name": "Pen",
+        "Price": 2,
+        "Stocks": 5,
+        "type": "physical",
+        "weight": 2
+    },
+    {
+        "ID": "P2",
+        "Name": "Game",
+        "Price": 30,
+        "Stocks": 100,
+        "type": "digital",
+        "download_size": 500
+    },
+    {
+        "ID": "P009",
+        "Name": "GTA VI",
+        "Price": 98.0,
+        "Stocks": 4,
+        "type": "digital",
+        "download_size": 1.2
+    },
+    {
+        "ID": "P004",
+        "Name": "FF 15",
+        "Price": 35.0,
+        "Stocks": 3,
+        "type": "digital",
+        "download_size": 1200.0
+    },
+    {
+        "ID": "P002",
+        "Name": "Monitor",
+        "Price": 299.0,
+        "Stocks": 8,
+        "type": "physical",
+        "weight": 5.0
+    }
+]

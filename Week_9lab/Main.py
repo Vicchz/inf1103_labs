@@ -38,13 +38,14 @@ def menu_system(inventory):
             stock = int(input("Stocks: "))
             kind = input("Type (physical/digital): ")
             if kind == "physical":
+                print("build physical")
                 weight = float(input("Weight (kg): "))
                 product = PhysicalProduct(pid, name, price, stock, weight)
             else:
                 size = float(input("Download size (MB): "))
                 product = DigitalProduct(pid, name, price, stock, size)
-                inventory.add_product(product)
-                print("Product added successfully!")
+            inventory.add_product(product)
+            print("Product added successfully!")
         elif choice == 3:
             product = inventory.search_product(input("Enter Product ID: "))
             if product is None:
