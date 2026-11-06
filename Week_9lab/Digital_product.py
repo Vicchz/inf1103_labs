@@ -3,12 +3,21 @@ from product_class import Product
 class DigitalProduct(Product):
     def __init__(self, product_id, name, price, stock, download_size):
         super().__init__(product_id, name, price, stock)
-        self.download_size = download_size
+        self.__download_size = download_size
 
     def display_information(self):
         super().display_information()
-        print(f"Download Size: {self.download_size}MB")
+        print(f"Download Size: {self.__download_size}MB")
 
     def get_fufillment_info(self):
         return "Delivered Digitally"
 
+    def to_dict(self):
+        data = super().to_dict()
+        data["type"] = "digital"
+        data["download_size"] = self.__download_size
+        return data
+
+if __name__ == "__main__":
+    d = DigitalProduct("P2", "Game", 30, 100, 500)
+    print(d.to_dict())
