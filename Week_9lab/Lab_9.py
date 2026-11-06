@@ -9,6 +9,10 @@ class PhysicalProduct(Product):
         super().display_information()
         print(f"Weight: {self.__weight}kg")
 
+    
+    def get_fufillment_info(self):
+        return "Need Physical Shipping"
+
 class DigitalProduct(Product):
     def __init__(self, product_id, name, price, stock, download_size):
         super().__init__(product_id, name, price, stock)
@@ -18,6 +22,9 @@ class DigitalProduct(Product):
         super().display_information()
         print(f"Download Size: {self.download_size}MB")
 
+    def get_fufillment_info(self):
+        return "Delivered Digitally"
+
 
 if __name__ == "__main__":
     p = PhysicalProduct("P1", "Pen", 2, 5, 0.1)
@@ -25,3 +32,7 @@ if __name__ == "__main__":
 
     d = DigitalProduct("P2", "Game", 30, 100, 500)
     d.display_information()
+
+
+print(p.get_fufillment_info())
+print(d.get_fufillment_info())
