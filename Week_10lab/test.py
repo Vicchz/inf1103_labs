@@ -16,15 +16,15 @@ p1 = PhysicalProduct("P1", "Pen", 2, 5, 2, s)
 
 # 2. Add to A
 inv_a.add_product(p1)
-print("In A:", inv_a.search_product("P1"))      # should show the product
+print("In A:", inv_a.find_product("P1"))      # should show the product
 
 # 3. Remove from A
 inv_a.remove_product("P1")
-print("In A after remove:", inv_a.search_product("P1"))   # should be None
+print("In A after remove:", inv_a.find_product("P1"))   # should be None
 
 # 4. Product still works on its own
 p1.display_information()
 
 # 5. Same object goes into B
 inv_b.add_product(p1)
-print("In B:", inv_b.search_product("P1"))
+print("In B:", inv_b.find_product("P1"))
