@@ -11,7 +11,7 @@ class Order():
         self.order_lines.append(order_line)
 
     def calculate_total(self) -> float:
-        total = 0
+        total: float = 0.0
         for line in self.order_lines:
             total += line.calculate_subtotal()
         return total
